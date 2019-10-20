@@ -23,3 +23,13 @@
 1. 在路由对象中，使用linkActiveClass属性，将 router-link-active 类替换为指定高亮的类
 
 ## 点击 tabbar 中的路由链接，展示对应的路由组件
+
+## 制作首页轮播图
+
+## 加载首页轮播图数据
+1. 获取数据，如果获取呢？使用 vue-resource
+2. 使用 vue-resource 的 this.$http.get 获取数据
+3. 获取到的数据，要保存到 data 身上
+4. 使用 v-for 循环渲染每个 item项
+
+## 完成首页中九宫格改造成六宫格
