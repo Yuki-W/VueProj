@@ -40,6 +40,7 @@
 <style lang="scss" scoped>
 .app-container {
   padding-top: 40px;
+  padding-bottom: 50px;
 
 // 解决组件切换动画时，顶部Header移动问题
   overflow: hidden;

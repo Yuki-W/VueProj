@@ -11,6 +11,16 @@ import VueResource from 'vue-resource'
 // 5.2 安装 vue-resource
 Vue.use(VueResource)
 
+// 导入格式化时间的插件 【执行cnpm i moment -s 命令】
+import moment from 'moment'
+// 定义全局过滤器
+Vue.filter('dataFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+   return moment(dataStr).format(pattern);
+})
+
+// 设置请求的根路径
+Vue.http.options.root = 'http://www.liulongbin.top:3005'
+
 // 2.导入 MUI 的样式
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
