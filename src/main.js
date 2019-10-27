@@ -23,7 +23,7 @@ Vue.http.options.root = 'http://www.liulongbin.top:3005'
 // 全局设置 post 时候表单数据格式组织形式 application/x-www-form-urlencodede
 Vue.http.options.emulateJSON = true;
 
-// 2.导入 MUI 的样式
+// 2.导入 MUI 的Style样式
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
