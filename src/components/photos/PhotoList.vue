@@ -7,10 +7,22 @@
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
       >
         <div class="mui-scroll">
-          <a :class="['mui-control-item',item.id == 0?'mui-active':'']" v-for="item in cates" :key="item.id">{{ item.title}}</a>
+          <a
+            :class="['mui-control-item',item.id == 0?'mui-active':'']"
+            v-for="item in cates"
+            :key="item.id"
+            @click="getPhotoListByCateId(item.id)"
+          >{{ item.title}}</a>
         </div>
       </div>
     </div>
+
+    <!-- 图片列表区域 -->
+    <ul>
+      <li v-for="item in list" :key="item.id">
+        <img v-lazy="item.img_url" />
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -21,11 +33,14 @@ import mui from "../../lib/mui/js/mui.js";
 export default {
   data() {
     return {
-      cates : [], //所有分类的列表数组
+      cates: [], //所有分类的列表数组
+      list:[]    //图片列表数组
     };
   },
   created() {
     this.getAllCategory();
+    // 默认进入页面，就主动请求所有图片列表的数据
+    this.getPhotoListByCateId(0);
   },
   mounted() {
     // 当 组件中的DOM结构被渲染好放到页面中后，会执行这个钩子函数
@@ -38,12 +53,22 @@ export default {
   methods: {
     getAllCategory() {
       // 获取所有图片分类
-      this.$http.get("api/getimgcategory").then((result) => {
-        if(result.body.status === 0){
+      this.$http.get("api/getimgcategory").then(result => {
+        if (result.body.status === 0) {
           // 手动拼接出一个最完整的 分类列表
-          result.body.message.unshift({ title:"全部", id: 0});
+          result.body.message.unshift({ title: "全部", id: 0 });
           this.cates = result.body.message;
         }
+      });
+    },
+    getPhotoListByCateId(cateId){
+      // 根据分类ID，获取图片列表
+      this.$http.get("api/getimages/"+cateId).then((result) => {
+        if(result.body.status === 0){
+          this.list = result.body.message;
+        }
+      }).catch((err) => {
+        
       });
     }
   }
@@ -53,5 +78,10 @@ export default {
 <style lang="" scoped>
 * {
   touch-action: pan-y;
+}
+img[lazy=loading] {
+  width: 40px;
+  height: 300px;
+  margin: auto;
 }
 </style>

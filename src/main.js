@@ -34,6 +34,10 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button);
 
+// 导入 Laza load ，图片懒加载
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
+
 
 // 3.3 导入自己的 router.js 路由模块
 import router from './router.js'
