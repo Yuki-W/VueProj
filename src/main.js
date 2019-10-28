@@ -26,17 +26,24 @@ Vue.http.options.emulateJSON = true;
 // 2.导入 MUI 的Style样式
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+import './lib/css/golbal.css'
 
 // 1.按需导入 Mint-UI 中的组件
-import { Header,Swipe, SwipeItem, Button } from 'mint-ui'
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// import { Header,Swipe, SwipeItem, Button } from 'mint-ui'
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// // 导入 Laza load ，图片懒加载
+// import { Lazyload } from 'mint-ui';
+// Vue.use(Lazyload);
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
-// 导入 Laza load ，图片懒加载
-import { Lazyload } from 'mint-ui';
-Vue.use(Lazyload);
+// 安装 图片预览插件  执行 cnpm i vue-preview -S
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 
 // 3.3 导入自己的 router.js 路由模块
