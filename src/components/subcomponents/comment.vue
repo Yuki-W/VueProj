@@ -1,3 +1,4 @@
+<!-- 抽离出来的 发表评论子组件 -->
 <template>
   <div class="cmt-container">
     <h3>发表评论</h3>

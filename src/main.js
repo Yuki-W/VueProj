@@ -5,6 +5,23 @@ import VueRouter from 'vue-router'
 // 3.2 安装路由
 Vue.use(VueRouter)
 
+// 注册 vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+let store = new Vuex.Store({
+    state:{ // this.$store.state.***
+        car:[]  //将购物车中的商品数据，用一个数组存储起来。
+                // 在 car 数组中，存储一些商品的对象，我们可以暂时将这个商品对象，设计成这样：
+                // { id:商品的id, count:要购买的数量, price:商品的单价, selected:false }
+    },
+    mutations:{ // this.$store.commit('方法的名称','按需传递唯一的参数')
+
+    },
+    getters:{   // this.$store.getters.***
+
+    }
+})
+
 
 // 5.1 导入 vue-resource
 import VueResource from 'vue-resource'
@@ -57,5 +74,6 @@ let vm = new Vue({
     render:c => c(app),  // 将组件渲染到页面
 
     // 3.4 挂载路由对象到 VM 实例上
-    router:router   
+    router,
+    store   //挂载 store 状态管理对象  
 });
