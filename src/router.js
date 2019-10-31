@@ -22,8 +22,8 @@ var router = new VueRouter({
     // 4.2 配置路由链接
     { path:'/home',component:HomeContainer},
     { path:'/member',component:MemberContainer},
-    { path:'/shopcar',component:SearchContainer},
-    { path:'/search',component:ShopcarContainer},
+    { path:'/shopcar',component:ShopcarContainer},
+    { path:'/search',component:SearchContainer},
     { path:'/home/newslist',component:NewsList},
     { path:'/home/newInfo/:id',component:NewsInfo},
     { path:'/home/photolist',component:PhotoList},
